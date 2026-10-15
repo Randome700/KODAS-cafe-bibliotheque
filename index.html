@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KODAS café bibliothèque · Nabeul</title>
+<meta name="description" content="KODAS, café bibliothèque à Nabeul. Gaufres, pancakes, snacks et une carte à feuilleter. +216 54 116 928.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23252522'/%3E%3Ctext x='32' y='47' font-family='Georgia,serif' font-size='44' text-anchor='middle' fill='%23F2EDE3'%3EK%3C/text%3E%3Crect x='10' y='52' width='44' height='3' fill='%23D2AE57'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2EDE3;--ink:#252522;--olive:#555A43;--mustard:#D2AE57;--gray:#A49B8C;--aub:#49333C;--pale:#FAF7F0;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+--ease:cubic-bezier(.2,.7,.2,1);--pad:clamp(20px,5vw,72px);--rail:0px}
+@media(min-width:900px){:root{--rail:84px}}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--sans);overflow-x:hidden;padding-top:env(safe-area-inset-top,0)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--mustard);outline-offset:3px}
+.mono{font:500 12px/1.4 var(--mono);letter-spacing:.04em}
+section{position:relative;padding:clamp(72px,12vw,150px) var(--pad) clamp(72px,12vw,150px) calc(var(--pad) + var(--rail));overflow:hidden}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1}
+/* header + index */
+.top{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top,0)) var(--pad) 12px;background:color-mix(in srgb,var(--paper) 92%,transparent);border-bottom:1px solid #25252222}
+@media(min-width:900px){.top{background:none;border:0;pointer-events:none;padding-left:calc(var(--pad) + var(--rail))}.top>*{pointer-events:auto}}
+.logo{font:700 20px/1 var(--serif);letter-spacing:.18em;text-decoration:none}
+.call{font:600 13px var(--sans);text-decoration:none;border:1px solid var(--ink);padding:8px 14px;transition:background .2s,color .2s}
+.call:hover{background:var(--ink);color:var(--paper)}
+.index{position:fixed;z-index:19;list-style:none;padding:0}
+.index a{text-decoration:none;display:flex;gap:8px;align-items:baseline;transition:color .3s,opacity .3s;opacity:.5}
+.index a[aria-current=true]{opacity:1}
+.index .n{font:500 11px var(--mono)}
+.index .t{font:600 11px var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.mark{position:absolute;background:var(--mustard);transition:transform .5s var(--ease),height .3s}
+.on-dark .index a{color:var(--paper)}
+@media(max-width:899px){
+.index{inset:auto 0 0 0;display:flex;background:var(--ink);padding:0 0 env(safe-area-inset-bottom,0)}
+.index li{flex:1}.index a{flex-direction:column;align-items:center;gap:2px;padding:10px 2px 9px;color:var(--paper)}
+.index .t{display:none}.index .n{font-size:13px}
+.mark{top:0;left:0;height:3px;width:20%}
+body{padding-bottom:56px}}
+@media(min-width:900px){
+.index{left:var(--pad);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:18px;padding-left:14px;width:130px;transition:color .3s}
+.index::before{content:"";position:absolute;left:0;top:-6px;bottom:-6px;width:1px;background:currentColor;opacity:.25}
+.mark{left:-1px;width:3px;height:22px;top:0}
+.index .t{opacity:0;max-width:0;overflow:hidden;white-space:nowrap;transition:opacity .3s,max-width .4s var(--ease)}
+.index:hover .t,.index:focus-within .t,.index a[aria-current=true] .t{opacity:1;max-width:120px}}
+/* hero */
+#arriver{min-height:100svh;display:grid;gap:28px;padding-top:110px;align-content:end}
+.word{font:600 clamp(86px,23vw,330px)/.8 var(--serif);letter-spacing:-.02em;margin-left:-.04em}
+.ink{display:inline-block;animation:ink 1.1s var(--ease) both}
+@keyframes ink{from{clip-path:inset(0 100% 0 0);opacity:.2}to{clip-path:inset(0);opacity:1}}
+.desc{animation:fade .8s .6s both}
+@keyframes fade{from{opacity:0}}
+.hgrid{display:grid;gap:32px}
+@media(min-width:900px){.hgrid{grid-template-columns:1.1fr 1fr;align-items:end;gap:6vw}}
+h1{font-size:clamp(32px,4.6vw,66px);font-weight:500;max-width:15ch}
+h1 em{font-style:italic;color:var(--aub)}
+.plate{aspect-ratio:4/5;max-height:70vh;width:100%;background:linear-gradient(160deg,var(--olive),var(--aub));position:relative;display:flex;align-items:flex-end;padding:18px;color:var(--paper)}
+.plate::before{content:"";position:absolute;inset:14px;border:1px solid #F2EDE355}
+.plate span{position:relative;max-width:20ch}
+.lead{font-size:17px;max-width:42ch;margin:18px 0 26px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font:600 14px var(--sans);text-decoration:none;padding:14px 22px;border:1px solid var(--ink);transition:transform .2s,background .2s,color .2s;display:inline-block}
+.btn.p{background:var(--ink);color:var(--paper)}.btn:hover{transform:translateY(-2px)}.btn.p:hover{background:var(--olive);border-color:var(--olive)}
+.cue{display:flex;align-items:center;gap:12px;margin-top:8px}.cue i{width:48px;height:1px;background:currentColor;transform-origin:left;animation:line 1.6s .8s var(--ease) both}
+@keyframes line{from{transform:scaleX(0)}}
+/* experience */
+#sinstaller{background:var(--pale)}
+.xgrid{display:grid;gap:40px}
+@media(min-width:900px){.xgrid{grid-template-columns:5fr 4fr;gap:7vw}.xgrid .side{margin-top:18vh}}
+.big{background:var(--olive);color:var(--paper);min-height:56vh;padding:28px;display:flex;flex-direction:column;justify-content:space-between}
+.big b{font:italic 400 clamp(80px,14vw,200px)/.8 var(--serif);color:var(--mustard)}
+h2{font-size:clamp(40px,6.4vw,92px);margin-bottom:24px}
+.words{font:italic 500 clamp(26px,3.4vw,44px)/1.15 var(--serif);margin:32px 0 0;color:var(--aub)}
+.words span{display:block}.words span:nth-child(2){margin-left:1.2em}.words span:nth-child(3){margin-left:2.4em}.words span:nth-child(4){margin-left:3.6em}
+.note{border-top:1px solid #25252244;padding-top:10px;margin-top:28px;max-width:34ch;color:#252522cc}
+.reveal{position:relative}
+html.js .reveal::after{content:"";position:absolute;inset:0;background:var(--pale);transform-origin:right;transition:transform 1.1s var(--ease)}
+html.js .reveal.in::after{transform:scaleX(0)}
+html.js .rv{opacity:0;transform:translateY(14px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+html.js .rv.in{opacity:1;transform:none}
+.rule{height:1px;background:currentColor;opacity:.4;transform-origin:left}
+html.js .rule{transform:scaleX(0);transition:transform 1.2s var(--ease)}html.js .rule.in{transform:none}
+/* menu */
+#feuilleter{background:var(--ink);color:var(--paper)}
+.mhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px;margin-bottom:44px}
+.mgrid{display:grid;gap:30px}
+@media(min-width:900px){.mgrid{grid-template-columns:260px 1fr;gap:6vw}.tabs{flex-direction:column}}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:6px;align-self:start;position:sticky;top:70px;background:var(--ink);z-index:2}
+.tabs::-webkit-scrollbar{display:none}
+.tab{all:unset;cursor:pointer;flex:none;padding:10px 4px;font:500 15px/1.3 var(--sans);color:var(--gray);position:relative;transition:color .25s;white-space:nowrap}
+@media(min-width:900px){.tab{white-space:normal;padding:14px 0;font-size:17px;border-bottom:1px solid #F2EDE322}}
+.tab small{display:block;font:500 11px var(--mono);margin-bottom:2px}
+.tab::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--mustard);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.tab[aria-selected=true]{color:var(--paper)}.tab[aria-selected=true]::after{transform:none}
+.tab:hover{color:var(--paper)}
+.cat h3{font-size:clamp(34px,5vw,64px);margin-bottom:6px;color:var(--paper)}
+.cat>.mono{color:var(--gray);display:block;margin-bottom:26px}
+.cat.show{animation:page .6s var(--ease)}
+@keyframes page{from{opacity:0;clip-path:inset(0 0 100% 0)}to{opacity:1;clip-path:inset(0)}}
+.dish{padding:20px 0;border-top:1px solid #F2EDE330}
+.row{display:flex;align-items:baseline;gap:12px}
+.row b{font:600 clamp(24px,3vw,34px)/1.1 var(--serif);letter-spacing:.04em;transition:letter-spacing .35s var(--ease),color .3s}
+.dish:hover b{letter-spacing:.09em;color:var(--mustard)}
+.dots{flex:1;border-bottom:1px dotted #A49B8C88;transform:translateY(-4px);min-width:16px}
+.pr{font:500 15px var(--mono);white-space:nowrap;flex:none}
+.ing{color:#F2EDE3cc;font-size:15px;max-width:60ch;margin-top:6px;padding-right:4.5em}
+.opt{margin-top:22px;padding-top:16px;border-top:1px solid var(--mustard);color:var(--paper)}
+/* break */
+#savourer{background:var(--aub);color:var(--paper);padding-top:clamp(60px,9vw,110px);padding-bottom:clamp(60px,9vw,110px)}
+.bw{font:italic 500 clamp(60px,16vw,250px)/.85 var(--serif);white-space:nowrap}
+.bw.r{margin-left:18vw;color:var(--mustard)}
+.strip{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:34px;color:var(--gray)}
+/* location */
+#nous{background:var(--paper)}
+#nous h2{max-width:13ch}
+.lgrid{display:grid;gap:36px;margin-top:20px}
+@media(min-width:900px){.lgrid{grid-template-columns:4fr 6fr;gap:6vw}}
+address{font:normal 500 18px/1.7 var(--sans)}
+address strong{font:600 28px var(--serif);display:block;letter-spacing:.04em}
+.mapw{aspect-ratio:4/3;min-height:300px;background:var(--pale);border:1px solid var(--ink);position:relative}
+.mapw iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:sepia(.25) saturate(.8)}
+.mapw p{padding:20px;font-size:14px}
+footer{background:var(--ink);color:var(--paper);padding:44px var(--pad) 44px calc(var(--pad) + var(--rail));display:grid;gap:18px}
+@media(min-width:760px){footer{grid-template-columns:1fr auto;align-items:end}}
+footer .logo{font-size:30px}footer nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}footer small{color:var(--gray);font-size:12px}
+
+body::after{content:"";position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.07;mix-blend-mode:multiply;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .15 0 0 0 0 .13 0 0 0 0 .1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.ph{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--olive),var(--aub))}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;filter:sepia(.18) saturate(.9);transition:transform .9s var(--ease),filter .5s}
+.ph:hover img{transform:scale(1.04);filter:none}
+.hwrap{position:relative}
+.hwrap .ph{aspect-ratio:4/5;max-height:72vh;width:100%;transform:rotate(1.2deg);box-shadow:12px 12px 0 var(--mustard)}
+.ring{position:absolute;z-index:-1;top:-34px;left:-30px;width:130px;height:130px;border-radius:50%;border:5px solid #49333C26;box-shadow:inset 0 0 0 9px #49333C0d,0 0 0 7px #49333C0f;transform:rotate(20deg)}
+.cap{margin-top:18px;max-width:34ch;color:#252522aa}
+.ul{position:relative;display:inline-block}
+.ul svg{position:absolute;left:0;bottom:-.1em;width:100%;height:.28em;fill:none;stroke:var(--mustard);stroke-width:4;stroke-linecap:round}
+.ul path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.1s 1.1s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.stack{position:relative;padding-bottom:16%}
+.big2{aspect-ratio:4/5;width:100%}
+.small2{position:absolute;width:42%;aspect-ratio:1;right:-3%;bottom:0;border:8px solid var(--pale);transform:rotate(-2.5deg)}
+.hand{position:absolute;left:3%;bottom:2%;font:italic 500 clamp(26px,3vw,40px)/1 var(--serif);color:var(--paper);text-shadow:0 1px 14px #25252299;transform:rotate(-5deg)}
+.film{display:flex;gap:18px;align-items:flex-end;margin-top:48px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 2px 12px;scrollbar-width:none}
+.film::-webkit-scrollbar{display:none}
+.film figure{flex:0 0 72%;scroll-snap-align:start}
+.film figure:nth-child(1){aspect-ratio:4/5;transform:rotate(-1.5deg)}.film figure:nth-child(2){aspect-ratio:1;transform:translateY(-28px) rotate(1deg)}.film figure:nth-child(3){aspect-ratio:3/4;transform:rotate(1.8deg)}
+@media(min-width:900px){.film{overflow:visible}.film figure{flex:1}}
+.film .ph{height:100%}
+@media(prefers-reduced-motion:reduce){.ul path{stroke-dashoffset:0}html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}html.js .rv,html.js .rule{opacity:1;transform:none}html.js .reveal::after{display:none}}
+</style>
+</head>
+<body>
+<header class="top"><a class="logo" href="#arriver" aria-label="KODAS, haut de page">KODAS</a><a class="call" href="tel:+21654116928">Appeler</a></header>
+
+<ol class="index" id="index" aria-label="Chapitres">
+<span class="mark" id="mark" aria-hidden="true"></span>
+<li><a href="#arriver"><span class="n">01</span><span class="t">Arriver</span></a></li>
+<li><a href="#sinstaller"><span class="n">02</span><span class="t">S'installer</span></a></li>
+<li><a href="#feuilleter"><span class="n">03</span><span class="t">Feuilleter</span></a></li>
+<li><a href="#savourer"><span class="n">04</span><span class="t">Se régaler</span></a></li>
+<li><a href="#nous"><span class="n">05</span><span class="t">Nous trouver</span></a></li>
+</ol>
+
+<main>
+<section id="arriver" data-theme="light">
+ <div class="word"><span class="ink">KODAS</span></div>
+ <p class="mono desc">CAFÉ BIBLIOTHÈQUE · NABEUL</p>
+ <div class="hgrid">
+  <div>
+   <h1>« Un endroit pour rester <em class="ul">un peu plus<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 6 C 20 1, 40 9, 60 4 S 90 3, 99 5"/></svg></em> longtemps. »</h1>
+   <p class="lead">Un café, quelques pages, une idée qui prend forme. Bienvenue chez KODAS.</p>
+   <div class="btns"><a class="btn p" href="#feuilleter">Explorer la carte</a><a class="btn" href="#nous">Trouver KODAS</a></div>
+   <div class="cue mono"><i></i>Entre les lignes</div>
+  </div>
+  <div class="hwrap"><i class="ring" aria-hidden="true"></i><figure class="ph"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80" width="1400" height="1750" fetchpriority="high" alt="Ambiance de café : une table, une boisson, un moment calme" onerror="this.remove()"></figure><p class="cap mono">Photo d'illustration (Unsplash). Pas une photo de l'intérieur de KODAS.</p></div>
+ </div>
+</section>
+
+<section id="sinstaller" data-theme="light">
+ <div class="xgrid">
+  <div class="stack"><figure class="ph big2 reveal rv"><img loading="lazy" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1400&q=80" width="1400" height="1750" alt="Livres et lecture, ambiance calme" onerror="this.remove()"></figure><figure class="ph small2 rv"><img loading="lazy" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" width="800" height="800" alt="Un café posé sur une table" onerror="this.remove()"></figure><span class="hand" aria-hidden="true">lire,<br>d'abord.</span></div>
+  <div class="side">
+   <p class="mono">S'INSTALLER</p>
+   <h2 class="rv">Des idées, des pages, des conversations.</h2>
+   <div class="rule"></div>
+   <p class="lead rv">Pour lire quelques pages, retrouver quelqu'un, avancer sur un projet ou simplement prendre le temps d'un café.</p>
+   <p class="words rv"><span>lire,</span><span>écrire,</span><span>discuter,</span><span>jouer.</span></p>
+   <p class="note mono rv">Photos d'illustration (Unsplash), pas l'intérieur de KODAS.</p>
+  </div>
+ </div>
+</section>
+
+<section id="feuilleter" data-theme="dark">
+ <div class="mhead"><h2 style="margin:0">La carte</h2><p class="mono" style="color:var(--gray)">Prix en dinars tunisiens (DT)</p></div>
+ <div class="mgrid">
+  <div class="tabs" role="tablist" aria-label="Catégories de la carte" id="tabs"></div>
+  <div id="panel" role="tabpanel" aria-live="polite"></div>
+ </div>
+</section>
+
+<section id="savourer" data-theme="dark">
+ <p class="mono" style="color:var(--gray);margin-bottom:24px">04 — SE RÉGALER</p>
+ <div class="bw rv">Prendre</div>
+ <div class="bw r rv">son temps.</div>
+ <div class="film"><figure class="ph rv"><img loading="lazy" src="https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=900&q=80" width="900" height="1125" alt="Gaufres dans une assiette" onerror="this.remove()"></figure><figure class="ph rv"><img loading="lazy" src="https://images.unsplash.com/photo-1671527301006-e143d433f8bb?auto=format&fit=crop&w=900&q=80" width="900" height="900" alt="Pile de pancakes au chocolat et aux fruits rouges" onerror="this.remove()"></figure><figure class="ph rv"><img loading="lazy" src="https://images.unsplash.com/photo-1558584724-0e4d32ca55a4?auto=format&fit=crop&w=900&q=80" width="900" height="1200" alt="Gaufre carrée aux fraises" onerror="this.remove()"></figure></div><div class="strip mono"><span>Sucré ou salé</span><span>Photos d'illustration, pas des plats KODAS</span><span>p. 04</span></div>
+</section>
+
+<section id="nous" data-theme="light">
+ <p class="mono">NOUS TROUVER</p>
+ <h2 class="rv" style="margin-top:14px">La prochaine page se tourne chez KODAS.</h2>
+ <div class="lgrid">
+  <div>
+   <address><strong>KODAS café bibliothèque</strong>Nabeul, Tunisie<br><a href="tel:+21654116928">+216 54 116 928</a></address>
+   <div class="btns" style="margin-top:26px">
+    <a class="btn p" href="tel:+21654116928">Appeler KODAS</a>
+    <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=36.4467351%2C10.7509192" target="_blank" rel="noopener">Itinéraire</a>
+    <a class="btn" href="https://web.facebook.com/cafebibliotheque/?modal=admin_todo_tour" target="_blank" rel="noopener">Facebook</a>
+   </div>
+   <p style="margin-top:18px;font-size:14px"><a href="https://wa.me/21654116928" target="_blank" rel="noopener">Écrire sur WhatsApp</a> · <a href="https://maps.app.goo.gl/JL6sHoXhJVghuHc9" target="_blank" rel="noopener">Fiche Google Maps</a></p>
+  </div>
+  <div class="mapw"><iframe title="Carte : KODAS café bibliothèque, Nabeul" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3209.447715934943!2d10.7509192!3d36.4467351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130299d6613ef661%3A0x70e60b9129595bf4!2sKODAS%20caf%C3%A9%20biblioth%C3%A9que!5e0!3m2!1sen!2stn!4v1792079705897!5m2!1sen!2stn"></iframe></div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div><div class="logo">KODAS</div><p class="mono" style="margin-top:6px">CAFÉ BIBLIOTHÈQUE · Nabeul, Tunisie</p></div>
+ <nav aria-label="Liens"><a href="tel:+21654116928">+216 54 116 928</a><a href="https://web.facebook.com/cafebibliotheque/?modal=admin_todo_tour" target="_blank" rel="noopener">Facebook</a><a href="https://www.google.com/maps/dir/?api=1&destination=36.4467351%2C10.7509192" target="_blank" rel="noopener">Itinéraire</a></nav>
+ <small>© 2026 KODAS. Tous droits réservés.</small>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+const MENU=[
+{n:'01',t:'Gaufres / Pancakes sucrés',d:[['SOFT','10.00',"Fruits de saison, miel, amande concassée, beurre de cacahuète OU chocolat healthy."],['BENNA','10.00',"Nutella, banane, amande concassée, cacahuète, noix de coco, cacao."],['MOUSSEUX','12.00',"Mousse au chocolat, fruits de saison, amande concassée, noix de coco, cacao."],['SPECCY','12.00',"Nutella, spéculoos, fruits de saison, amande concassée, noix de coco."],['OREO','13.00',"Nutella, Oreo, amande concassée, fruits de saison, noix de coco, cacao."],['SPECCY OREO','15.00',"Nutella, spéculoos, Oreo, fruits de saison, amande concassée, noix de coco."]],o:"Option : Pâte au flocon d'avoine : +2.00 DT."},
+{n:'02',t:'Gaufres salées',d:[['FRENCH','8.50',"Fromage / mozzarella, jambon, œuf, tomate, basilic."],['PIZZA','10.00',"Sauce tomate, mozzarella, thon, tomate, basilic."],['PEPPERONI','12.00',"Sauce tomate, mozzarella, pepperoni, thon, tomate, basilic."]]},
+{n:'03',t:'Snack bar / Autres salés',d:[['PIZZA HEALTHY','10.00',"Sauce tomate, mozzarella, thon, tomate, basilic."],['CROISSANT SALÉ','6.50',"Fromage, jambon, œuf, tomate, basilic."]]},
+{n:'04',t:'Suppléments / Options',d:[["Pâte au flocon d'avoine",'+2.00',''],['Supplément cheddar','+2.50','']]}];
+const tabs=document.getElementById('tabs'),panel=document.getElementById('panel');
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+function show(i,focus){
+ const c=MENU[i];
+ [...tabs.children].forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});
+ panel.setAttribute('aria-labelledby','tab'+i);
+ panel.innerHTML='<div class="cat show"><h3>'+esc(c.t)+'</h3><span class="mono">Catégorie '+c.n+'</span>'+c.d.map(x=>'<div class="dish"><div class="row"><b>'+esc(x[0])+'</b><span class="dots"></span><span class="pr">'+x[1]+' DT</span></div>'+(x[2]?'<p class="ing"><span class="mono" style="opacity:.6">Ingrédients : </span>'+esc(x[2])+'</p>':'')+'</div>').join('')+(c.o?'<p class="opt">'+esc(c.o)+'</p>':'')+'</div>';
+ if(focus)tabs.children[i].focus();
+}
+MENU.forEach((c,i)=>{const b=document.createElement('button');b.className='tab';b.role='tab';b.id='tab'+i;b.innerHTML='<small>'+c.n+'</small>'+esc(c.t);
+ b.onclick=()=>show(i);
+ b.onkeydown=e=>{const k={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(k){e.preventDefault();show((i+k+MENU.length)%MENU.length,true)}};
+ tabs.appendChild(b)});
+show(0);
+/* chapter index */
+const links=[...document.querySelectorAll('#index a')],secs=links.map(a=>document.querySelector(a.hash)),mark=document.getElementById('mark'),idx=document.getElementById('index');
+const mq=matchMedia('(min-width:900px)');
+function setActive(i){
+ links.forEach((a,j)=>a.toggleAttribute('aria-current',j===i)||a.removeAttribute('aria-current'));
+ links.forEach((a,j)=>{if(j===i)a.setAttribute('aria-current','true')});
+ const dark=secs[i].dataset.theme==='dark';
+ idx.style.color=mq.matches?(dark?'var(--paper)':'var(--ink)'):'';
+ document.querySelector('.logo').style.color='';
+ requestAnimationFrame(()=>{
+  mark.style.transform=mq.matches?'translateY('+(links[i].parentElement.offsetTop+3)+'px)':'translateX('+(i*100)+'%)';
+ });
+}
+setActive(0);
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setActive(secs.indexOf(e.target))}),{rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(s=>spy.observe(s));
+addEventListener('resize',()=>{const c=links.findIndex(a=>a.getAttribute('aria-current'));setActive(Math.max(c,0))});
+/* reveals */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv,.reveal,.rule').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
